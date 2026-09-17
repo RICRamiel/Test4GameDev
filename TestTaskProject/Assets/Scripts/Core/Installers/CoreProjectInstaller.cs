@@ -1,3 +1,4 @@
+using Core.SceneManagement;
 using UnityEngine;
 using Zenject;
 
@@ -9,5 +10,6 @@ public class CoreProjectInstaller : MonoInstaller
     {
         Container.Bind<EventManager>().AsSingle();
         Container.Bind<UIController>().FromInstance(_uiController).AsSingle();
+        Container.Bind<SceneTransitionService>().AsSingle();
     }
 }

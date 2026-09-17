@@ -9,4 +9,14 @@ public static class EventsProvider
             ScreenId = screenId;
         }
     }
+
+    public class SceneTransitionEvent
+    {
+        public readonly string SceneId;
+
+        public SceneTransitionEvent(string sceneId)
+        {
+            SceneId = sceneId;
+        }
+    }
 }
