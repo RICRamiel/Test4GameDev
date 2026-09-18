@@ -1,6 +1,7 @@
 ﻿using Zenject;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static EventsProvider;
 
 namespace Gameplay
 {
@@ -16,9 +17,8 @@ namespace Gameplay
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                Debug.Log("try to publish event");
                 _eventManager.Publish(
-                    new EventsProvider.SceneTransitionEvent(_targetScene)
+                    new SceneTransitionEvent(_targetScene)
                 );
             }
         }

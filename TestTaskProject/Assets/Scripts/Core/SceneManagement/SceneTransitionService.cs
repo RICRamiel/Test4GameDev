@@ -1,6 +1,5 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
+using static EventsProvider;
 
 namespace Core.SceneManagement
 {
@@ -11,12 +10,11 @@ namespace Core.SceneManagement
         public SceneTransitionService(EventManager eventManager)
         {
             _eventManager = eventManager;
-            _eventManager.Subscribe<EventsProvider.SceneTransitionEvent>(OnSceneTransition);
+            _eventManager.Subscribe<SceneTransitionEvent>(OnSceneTransition);
         }
 
-        public void OnSceneTransition(EventsProvider.SceneTransitionEvent evt)
+        public void OnSceneTransition(SceneTransitionEvent evt)
         {
-            Debug.Log("OnSceneTransition");
             SceneManager.LoadScene(evt.SceneId);
         }
     }
