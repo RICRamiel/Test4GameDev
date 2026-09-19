@@ -19,4 +19,14 @@ public static class EventsProvider
             SceneId = sceneId;
         }
     }
+
+    public class CollectibleCollectedEvent
+    {
+        public readonly string CollectibleId;
+
+        public CollectibleCollectedEvent(string collectibleId)
+        {
+            CollectibleId = collectibleId;
+        }
+    }
 }

@@ -1,12 +1,20 @@
+using System;
 using UnityEngine;
 using Zenject;
+using static EventsProvider;
 
 namespace Gameplay
 {
     public class Collectible : MonoBehaviour
     {
-        [Inject]
-        private GameState _gameState;
+        [Inject] private EventManager _eventManager;
+
+        private string _collectibleId;
+
+        public void SetId(string collectibleId)
+        {
+            _collectibleId = collectibleId;
+        }
         
         private void OnTriggerEnter(Collider other)
         {
@@ -14,9 +22,9 @@ namespace Gameplay
             {
                 return;
             }
-            _gameState.CollectItem();
+
+            _eventManager.Publish(new CollectibleCollectedEvent(_collectibleId));
             Destroy(gameObject);
         }
-        
     }
 }
