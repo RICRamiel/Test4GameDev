@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Gameplay.FirstFloor
 {
-    public class FirstFloorExit : MonoBehaviour
+    public class FirstFloorExit : SceneTransitionDoor
     {
-        [Inject]
-        private FirstFloorController _controller;
+        [Inject] private GameState _gameState;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -15,7 +15,13 @@ namespace Gameplay.FirstFloor
                 return;
             }
 
-            _controller.InteractWithDoor();
+            if (!_gameState.IsFirstFloorCompleted)
+            {
+                Debug.Log("You need to collect all items first");
+                return;
+            }
+
+            Transition();
         }
     }
 }

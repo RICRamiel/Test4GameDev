@@ -423,7 +423,6 @@ GameObject:
   - component: {fileID: 924382788}
   - component: {fileID: 924382787}
   - component: {fileID: 924382786}
-  - component: {fileID: 924382785}
   - component: {fileID: 924382784}
   m_Layer: 0
   m_Name: Second2FirstDoor
@@ -445,18 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.SceneTransitionDoor
   _targetScene: FirstScene
---- !u!114 &924382785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924382783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b62d89f619d4cff813728dd622fecd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.SecondFloor.SecondFloorDoor
 --- !u!65 &924382786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1128,6 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62d89f619d4cff813728dd622fecd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.SecondFloor.SecondFloorDoor
+  _targetScene: ThirdScene
 --- !u!65 &1651722709
 BoxCollider:
   m_ObjectHideFlags: 0

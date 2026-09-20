@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41b471d83fe3b84794312f090ebe0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.FirstFloor.FirstFloorExit
+  _targetScene: SecondScene
 --- !u!65 &76656014
 BoxCollider:
   m_ObjectHideFlags: 0

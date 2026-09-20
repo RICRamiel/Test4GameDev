@@ -109,20 +109,7 @@ namespace Gameplay
                 _setup.KeySpawnPoint.position,
                 _setup.KeySpawnPoint.rotation);
         }
-
-        public void InteractWithDoor()
-        {
-            if (!_gameState.IsFirstFloorCompleted)
-            {
-                Debug.Log("You need to collect all items first.");
-                return;
-            }
-
-            _eventManager.Publish(
-                new SceneTransitionEvent("SecondScene")
-            );
-        }
-
+        
         public void Dispose()
         {
             Debug.Log("scene disposed");

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Zenject;
+using static EventsProvider;
 
 namespace Gameplay
 {
@@ -9,16 +10,9 @@ namespace Gameplay
 
         [Inject] private EventManager _eventManager;
 
-        private void OnTriggerEnter(Collider other)
+        protected void Transition()
         {
-            if (!other.CompareTag("Player"))
-            {
-                return;
-            }
-
-            _eventManager.Publish(
-                new EventsProvider.SceneTransitionEvent(_targetScene)
-            );
+            _eventManager.Publish(new SceneTransitionEvent(_targetScene));
         }
     }
 }

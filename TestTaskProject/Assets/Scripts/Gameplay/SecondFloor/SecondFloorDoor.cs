@@ -3,10 +3,9 @@ using Zenject;
 
 namespace Gameplay.SecondFloor
 {
-    public class SecondFloorDoor : MonoBehaviour
+    public class SecondFloorDoor : SceneTransitionDoor
     {
-        [Inject]
-        private SecondFloorController _controller;
+        [Inject] private GameState _gameState;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -15,7 +14,23 @@ namespace Gameplay.SecondFloor
                 return;
             }
 
-            _controller.InteractWithDoor();
+            if (!_gameState.IsSecondFloorReturnRequired)
+            {
+                _gameState.RequireReturnToFirstFloor();
+
+                Debug.Log("You forgot something. Return to the first floor.");
+
+                return;
+            }
+
+            if (!_gameState.HasSecondFloorKey)
+            {
+                Debug.Log("The door is locked. You need a key.");
+
+                return;
+            }
+
+            Transition();
         }
     }
 }

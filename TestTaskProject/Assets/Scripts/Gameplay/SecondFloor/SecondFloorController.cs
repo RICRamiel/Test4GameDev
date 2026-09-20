@@ -17,21 +17,7 @@ namespace Gameplay.SecondFloor
 
         public void InteractWithDoor()
         {
-            if (!_gameState.IsSecondFloorReturnRequired)
-            {
-                _gameState.RequireReturnToFirstFloor();
-
-                Debug.Log("You forgot something. Return to the first floor.");
-
-                return;
-            }
-
-            if (!_gameState.HasSecondFloorKey)
-            {
-                Debug.Log("The door is locked. You need a key.");
-
-                return;
-            }
+            
 
             Debug.Log("The door is open. You can continue.");
             _eventManager.Publish(new SceneTransitionEvent("ThirdScene"));
