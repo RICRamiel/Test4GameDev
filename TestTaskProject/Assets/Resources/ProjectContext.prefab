@@ -283,7 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c5df0713013ce4e97ffe7c34a024c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
-  _views: []
+  _views:
+  - {fileID: 7200546847802223455, guid: f2edc3c0d13c20243927fb4af25de077, type: 3}
+  - {fileID: 8696800308071090599, guid: e74cba33136255849a922bbf08418e6d, type: 3}
 --- !u!1 &8993499463509565719
 GameObject:
   m_ObjectHideFlags: 0

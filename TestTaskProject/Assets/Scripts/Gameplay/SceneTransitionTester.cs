@@ -18,6 +18,9 @@ namespace Gameplay
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 _eventManager.Publish(
+                    new OpenScreenEvent("MainMenu")
+                );
+                _eventManager.Publish(
                     new SceneTransitionEvent(_targetScene)
                 );
             }

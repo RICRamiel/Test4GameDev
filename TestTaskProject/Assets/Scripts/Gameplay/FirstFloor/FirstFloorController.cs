@@ -29,7 +29,7 @@ namespace Gameplay
             _container = container;
 
             _eventManager.Subscribe<CollectibleCollectedEvent>(OnCollectibleCollected);
-
+            _eventManager.Publish(new OpenScreenEvent("FirstFloor"));
             if (!_gameState.IsFirstFloorCompleted)
             {
                 SpawnCollectibles();
@@ -51,7 +51,7 @@ namespace Gameplay
 
                 return;
             }
-            
+
             if (!_requiredCollectibles.Contains(evt.CollectibleId))
             {
                 return;
@@ -64,6 +64,11 @@ namespace Gameplay
 
             Debug.Log(
                 $"Collected: {_collectedCollectibles.Count}/{_requiredCollectibles.Count}"
+            );
+            _eventManager.Publish(new FirstFloorProgressChangedEvent(
+                    _collectedCollectibles.Count,
+                    _requiredCollectibles.Count
+                )
             );
 
             if (_collectedCollectibles.Count >= _requiredCollectibles.Count)
@@ -103,6 +108,19 @@ namespace Gameplay
             key.transform.SetPositionAndRotation(
                 _setup.KeySpawnPoint.position,
                 _setup.KeySpawnPoint.rotation);
+        }
+
+        public void InteractWithDoor()
+        {
+            if (!_gameState.IsFirstFloorCompleted)
+            {
+                Debug.Log("You need to collect all items first.");
+                return;
+            }
+
+            _eventManager.Publish(
+                new SceneTransitionEvent("SecondScene")
+            );
         }
 
         public void Dispose()

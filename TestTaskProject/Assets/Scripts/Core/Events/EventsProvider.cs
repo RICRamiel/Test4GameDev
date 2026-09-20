@@ -29,4 +29,16 @@ public static class EventsProvider
             CollectibleId = collectibleId;
         }
     }
+
+    public class FirstFloorProgressChangedEvent
+    {
+        public readonly int Collected;
+        public readonly int Required;
+
+        public FirstFloorProgressChangedEvent(int collected, int required)
+        {
+            Collected = collected;
+            Required = required;
+        }
+    }
 }
