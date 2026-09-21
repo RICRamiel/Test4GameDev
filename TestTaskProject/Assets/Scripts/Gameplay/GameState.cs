@@ -24,5 +24,12 @@ namespace Gameplay
         {
             HasSecondFloorKey = true;
         }
+
+        public void Reset()
+        {
+            IsFirstFloorCompleted = false;
+            IsSecondFloorReturnRequired = false;
+            HasSecondFloorKey = false;
+        }
     }
 }
