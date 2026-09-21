@@ -30,6 +30,15 @@ namespace Gameplay
 
             _eventManager.Subscribe<CollectibleCollectedEvent>(OnCollectibleCollected);
             _eventManager.Publish(new OpenScreenEvent("FirstFloor"));
+            if (_gameState.IsFirstFloorCompleted)
+            {
+                _eventManager.Publish(new FirstFloorProgressChangedEvent(3, 3));
+            }
+            else
+            {
+                _eventManager.Publish(new FirstFloorProgressChangedEvent(0, 3));
+            }
+
             if (!_gameState.IsFirstFloorCompleted)
             {
                 SpawnCollectibles();
@@ -109,7 +118,7 @@ namespace Gameplay
                 _setup.KeySpawnPoint.position,
                 _setup.KeySpawnPoint.rotation);
         }
-        
+
         public void Dispose()
         {
             Debug.Log("scene disposed");

@@ -13,14 +13,8 @@ namespace Gameplay.SecondFloor
         {
             _gameState = gameState;
             _eventManager = eventManager;
-        }
 
-        public void InteractWithDoor()
-        {
-            
-
-            Debug.Log("The door is open. You can continue.");
-            _eventManager.Publish(new SceneTransitionEvent("ThirdScene"));
+            _eventManager.Publish(new OpenScreenEvent("SecondFloor"));
         }
 
         public void Dispose()

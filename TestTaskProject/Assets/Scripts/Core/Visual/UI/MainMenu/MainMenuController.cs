@@ -36,6 +36,7 @@ namespace Core.Visual.UI.MainMenu
         private void Exit()
         {
             Debug.Log("Exit game");
+            Application.Quit();
         }
 
         public override void Dispose()
